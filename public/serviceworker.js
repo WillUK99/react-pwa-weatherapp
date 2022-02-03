@@ -37,6 +37,7 @@ self.addEventListener("activate", (e) => {
         caches.keys().then((cacheNames) => Promise.all(
             cacheNames.map((cacheName) => {
                 if(!cacheWhitelist.includes(cacheName)) {
+                    // deleting all older versions and keep whitelisted verions
                     return caches.delete(cacheName)
                 }
             })
