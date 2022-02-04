@@ -1,4 +1,4 @@
-const CACHE_NAME = "version-1"
+const CACHE_NAME = "wapwajsw2022"
 const urlsToCache = ["index.html", "offline.html"]
 
 // this in SW file represents the SW not the window obj
@@ -36,8 +36,8 @@ self.addEventListener("activate", (e) => {
     e.waitUntil(
         caches.keys().then((cacheNames) => Promise.all(
             cacheNames.map((cacheName) => {
+                // If the cacheName is not in the whitelisted group we remove it.
                 if (!cacheWhitelist.includes(cacheName)) {
-                    // deleting all older versions and keep whitelisted verions
                     return caches.delete(cacheName)
                 }
             })
